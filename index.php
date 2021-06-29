@@ -42,7 +42,7 @@ if(isset($_SESSION['email']))
                     <div class="panel panel-default">
                         <div class="panel-heading">Mobile 1</div>
                         <div class="panel-body">
-                            <img src="images\m4" class="img-responsive">
+                            <img src="images\m4.jpg" class="img-responsive">
                             <p>ONEPLUS 5,Rs  30,678</p>
                             <a role="button" data-toggle="modal" data-target="#login" class="btn btn-block btn-primary">Order Now!</a> 
                         </div>
@@ -62,7 +62,7 @@ if(isset($_SESSION['email']))
                      <div class="panel panel-default">
                         <div class="panel-heading">Mobile 3</div>
                         <div class="panel-body">
-                            <img src="images\m6" class="img-responsive">
+                            <img src="images\m6.png" class="img-responsive">
                             <p>OnePlus 6T A6013 128GB Storage + 8GB Memory T-Mobile and GSM + Verizon Unlocked 6.41 inch AMOLED Display,Rs  26,375</p>
                             <a role="button" data-toggle="modal" data-target="#login" class="btn btn-block btn-primary">Order Now!</a> 
                         </div>
@@ -74,7 +74,7 @@ if(isset($_SESSION['email']))
                     <div class="panel panel-default">
                         <div class="panel-heading">Mobile 4</div>
                         <div class="panel-body">
-                            <img src="images\m1" class="img-responsive">
+                            <img src="images\m1.jpeg" class="img-responsive">
                             <p>Gionee A1 ( 64GB , 4 GB ) Black,Rs  16,678</p>
                             <a role="button" data-toggle="modal" data-target="#login" class="btn btn-block btn-primary">Order Now!</a> 
                         </div>
@@ -84,7 +84,7 @@ if(isset($_SESSION['email']))
                      <div class="panel panel-default">
                         <div class="panel-heading">Mobile 5</div>
                         <div class="panel-body">
-                            <img src="images\m2" class="img-responsive">
+                            <img src="images\m2.jpg" class="img-responsive">
                             <p>Alcatel OneTouch Fierce XL With Windows 10,rs 12,999</p>
                             <a role="button" data-toggle="modal" data-target="#login" class="btn btn-block btn-primary">Order Now!</a> 
                         </div>
@@ -94,7 +94,7 @@ if(isset($_SESSION['email']))
                      <div class="panel panel-default">
                         <div class="panel-heading">Mobile 6</div>
                         <div class="panel-body">
-                            <img src="images\m3" class="img-responsive">
+                            <img src="images\m3.jpg" class="img-responsive">
                             <p>Asus Zenfone Max Pro M1 ( 64GB , 6 GB ) GREY,Rs  14,999</p>
                             <a role="button" data-toggle="modal" data-target="#login" class="btn btn-block btn-primary">Order Now!</a> 
                         </div>
