@@ -1,9 +1,3 @@
-<?php 
-require 'includes/common.php';
-if(isset($_SESSION['email']))
-    header('location:home.php');
-?>
-<!DOCTYPE html>
 <html>
     <head>
         <title>E-store</title>
@@ -19,8 +13,62 @@ if(isset($_SESSION['email']))
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <?php include 'includes\header.php';
-    ?>
+      <div class="container">
+<div id="login" class="modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">LOGIN</h4>
+            </div>
+            <div class="modal-body">
+                <p>Don't have an account?<a href="signup.php" style="color:blue; text-decoration:none;">Register</a>
+                <form method="POST" action="login_submit.php">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required="true" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">       
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" required="true" class="form-control" pattern=".{6,}">
+                           </div>
+                   
+                    <button type="submit" class="btn btn-primary">LOGIN</button>      
+                </form>
+                <br>
+                <a href="forgot.php" style="color:blue; text-decoration:none;">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">      
+          <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">
+                        <span class="icon-bar"></span>    
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span>
+                    </button> 
+              <a class="navbar-brand" href="index.php">E-Store</a>  
+                </div>         
+                <div class="collapse navbar-collapse" id="navBar">
+                 <ul class="nav navbar-nav navbar-right">
+                     <?php if(isset($_SESSION['email'])){ 
+                         ?>
+                      <li><a href = "cart.php"><span class = "glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+                        <li><a href = "settings.php"><span class = "glyphicon glyphicon-user"></span> Settings</a></li>
+                        <li><a href = "logout.php"><span class = "glyphicon glyphicon-log-out"></span> Logout</a></li> 
+                     <?php } 
+                     else{ 
+                         ?>
+                <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a role="button" data-toggle="modal" data-target="#login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="about.php"><span class="glyphicon glyphicon-tasks"></span> About Us</a></li>
+                <li><a href="contact.php"><span class="glyphicon glyphicon-phone"></span> Contact Us</a></li>
+                     <?php } ?>
+            </ul>
+                </div>
+        </div>
+</nav>
        
         
         <div class="container-fluid">
