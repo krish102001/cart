@@ -1,0 +1,30 @@
+footer{
+    background-color:#323435;
+  color:#d3d3d3;
+    bottom:0%;
+    width:100%;
+    padding:10px 0px 10px 100px;
+}
+a{
+    text-decoration:none;
+    color:#d3d3d3;
+}
+a:visited{
+    color:#d3d3d3;
+    text-decoration: none;
+}
+a:hover{
+    color:white;
+}
+.con{
+    margin-top:100px;
+}
+.blue{
+    color:blue;
+}
+.red{
+    color:red;
+}
+#login{
+    top:10%;
+}
