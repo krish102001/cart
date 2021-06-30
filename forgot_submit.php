@@ -9,7 +9,7 @@ $np=mysqli_real_escape_string($con,$np);
 $rnp=$_POST['rnp'];
 $rnp=mysqli_real_escape_string($con,$rnp);
 $email_query="SELECT email from users where email='$email'";
-$contact_query="SELECt contact from users where contact='$contact'";
+$contact_query="SELECT contact from users where contact='$contact'";
 $email_result=mysqli_query($con,$email_query) or die(mysqli_error($con));
 $contact_result=mysqli_query($con,$contact_query) or die(mysqli_error($con));        
 if(mysqli_num_rows($email_result)==0){

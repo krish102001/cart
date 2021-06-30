@@ -20,7 +20,7 @@ if(!isset($_SESSION['email']))
     </head>
     <body>
         <?php include 'includes\header.php';
- include 'includes/check_if_added.php';
+ include 'includes\check_if_added.php';
     ?>
        
         
@@ -87,7 +87,7 @@ if(!isset($_SESSION['email']))
                     <div class="panel panel-default">
                         <div class="panel-heading">Mobile 4</div>
                         <div class="panel-body">
-                            <img src="images\m1.jpg" class="img-responsive">
+                            <img src="images\m1.jpeg" class="img-responsive">
                             <p>Gionee A1 ( 64GB , 4 GB ) Black,Rs  16,678</p>
                             <?php if(check_if_added_to_cart(4)) { ?>
                            <a href="cart_add.php" class="btn btn-block btn-primary" disabled>Add to Cart</a>
@@ -101,7 +101,7 @@ if(!isset($_SESSION['email']))
                      <div class="panel panel-default">
                         <div class="panel-heading">Mobile 5</div>
                         <div class="panel-body">
-                            <img src="images\m2" class="img-responsive">
+                            <img src="images\m2.jpg" class="img-responsive">
                             <p>Alcatel OneTouch Fierce XL With Windows 10,rs 12,999</p>
                            <?php if(check_if_added_to_cart(5)) { ?>
                            <a href="cart_add.php" class="btn btn-block btn-primary" disabled>Add to Cart</a>

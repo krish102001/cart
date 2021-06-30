@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <?php        include 'includes/header.php'; ?>
+        <?php include 'includes/header.php'; ?>
         <div class="container con">
             <div class="row">  
                 <div class="col-sm-6 col-sm-offset-2">

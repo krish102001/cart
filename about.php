@@ -17,7 +17,7 @@
                 <div class="col-sm-4">
                             <h3>WHO WE ARE</h3>
                             <br>
-                            <img src="images\gp" class="img-responsive">
+                            <img src="images\gp.jpg" class="img-responsive">
                             <p>E-store is an american electronic commerce company with headquarters in Washington.It is the largest Internet-based retailer in the United States.E-store started as an online blog,but soon diversified selling mobile phones.E-store also sells certain low-end products like USB cable and other accesoriess.E-store has separate retail website for United States,United Kingdom & Ireland,France,Germany,India,Canada,Italy,Spain , Australia ,China ,Japan and Mexico.  </p>
                 </div>
                 <div class="col-sm-4">

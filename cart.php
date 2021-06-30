@@ -27,7 +27,7 @@ require 'includes/common.php';
                         $sum = 0;
                         $id=""; 
                         $user_id = $_SESSION['user_id'];
-                        $query = "SELECT price, products.id FROM user_products INNER JOIN products ON user_products.products_id = products.id WHERE user_products.users_id='" . $user_id . "' and status='Added to cart'";
+                        $query = "SELECT price, products.id FROM user_items INNER JOIN products ON user_items.products_id = products.id WHERE user_items.users_id='" . $user_id . "' and status='Added to cart'";
                         $result = mysqli_query($con, $query)or die(mysqli_error($con));
                         if (mysqli_num_rows($result) >= 1) {
                             ?>

@@ -8,7 +8,7 @@ $user_id=$_SESSION['user_id'];
 $id=$_GET['id'];
 $product_id=explode(",",$id);
 foreach($product_id as $product){
-   $query = "UPDATE user_products SET status='Confirmed' WHERE users_id='" . $user_id . "' AND products_id IN ('" . $product . "') and status ='Added to cart'";
+   $query = "UPDATE user_items SET status='Confirmed' WHERE users_id='" . $user_id . "' AND products_id IN ('" . $product . "') and status ='Added to cart'";
     mysqli_query($con,$query) or die(mysqli_error($con));
 }
 ?>
@@ -30,10 +30,9 @@ foreach($product_id as $product){
         <div class="container con">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-4">
-                    <center>
             <p>Thank you for ordered from E-store.Your order will be delivered shortly.</p>
             <hr>
-            <p>Order Some more electronic Items<a href="home.php" style="color:blue"> here.</a></p></center>
+            <p>Order Some more electronic Items<a href="home.php" style="color:blue"> here.</a></p>
   
         </div>
             </div>
