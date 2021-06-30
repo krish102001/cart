@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Jun 13, 2020 at 12:22 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Host: 127.0.0.1
+-- Generation Time: Jun 30, 2021 at 06:54 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,34 +24,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `items`
+-- Table structure for table `contact`
 --
 
-DROP TABLE IF EXISTS `items`;
-CREATE TABLE IF NOT EXISTS `items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contact` (
+  `name` text NOT NULL,
+  `email` text NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `price` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `items`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `items` (`id`, `name`, `price`) VALUES
-(1, 'Canon EOS ', 36000),
-(2, 'Nikon DSLR', 40000),
-(3, 'Sony DSLR', 45000),
-(4, 'Olympus DSLR', 50000),
-(5, 'Titan Model #301', 13000),
-(6, 'Titan Model #201', 3000),
-(7, 'HMT Milan', 8000),
-(8, 'Faber Luba #111', 18000),
-(9, 'H&W', 800),
-(10, 'Luis Phil', 1000),
-(11, 'John Zok', 1500),
-(12, 'Jhalsani ', 1300);
+INSERT INTO `products` (`id`, `name`, `price`) VALUES
+(1, 'Oneplus5', 30678),
+(2, 'Oneplus3', 30168),
+(3, 'Oneplus6T', 26375),
+(4, 'GioneeA1', 16678),
+(5, 'Alcatel', 12999),
+(6, 'AsusZenofoneMaxProM1', 14999);
 
 -- --------------------------------------------------------
 
@@ -60,45 +63,99 @@ INSERT INTO `items` (`id`, `name`, `price`) VALUES
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `contact`, `city`, `address`) VALUES
+(1, 'Sivaramakrishnan', 'krishnavaan10@gmail.com', '8854b47fc05990266cc6df7f69d1adeb', '9888888888', 'Nagapattinam', 'PATTAMANGALA STREET Mayiladuthurai, Mayiladuthurai');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_items`
+-- Table structure for table `user_items`
 --
 
-DROP TABLE IF EXISTS `users_items`;
-CREATE TABLE IF NOT EXISTS `users_items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `item_id` int(11) NOT NULL,
-  `status` enum('Added to cart','Confirmed') NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`,`item_id`),
-  KEY `item_id` (`item_id`)
+CREATE TABLE `user_items` (
+  `id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
+  `products_id` int(11) NOT NULL,
+  `status` enum('Added to cart','Confirmed') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_items`
+--
+
+INSERT INTO `user_items` (`id`, `users_id`, `products_id`, `status`) VALUES
+(1, 1, 1, 'Confirmed');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_items`
+--
+ALTER TABLE `user_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`users_id`,`products_id`),
+  ADD KEY `item_id` (`products_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_items`
+--
+ALTER TABLE `user_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `users_items`
+-- Constraints for table `user_items`
 --
-ALTER TABLE `users_items`
-  ADD CONSTRAINT `users_items_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `users_items_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`);
+ALTER TABLE `user_items`
+  ADD CONSTRAINT `user_items_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `user_items_ibfk_2` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
